@@ -8,6 +8,5 @@
 </head>
 <body>
 	WELCOME ADMIN ${u}
-	<a href="/addresources">Add Resources</a>
 </body>
 </html>
