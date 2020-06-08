@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-Welcome Customer
+Welcome Customer!!!
+<form method="post" action="/resourceList">
+<input type="submit" name="resourceList" value="resource list"/>
+</form>
 </body>
 </html>
+
+
