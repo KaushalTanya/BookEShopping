@@ -56,6 +56,18 @@
 			<form:label path="password">Password</form:label> 
 			<form:input path="password" type="text"/>
 		</fieldset>
+		<fieldset>
+			<form:label path="petname">What is your Pet name?</form:label>
+			<form:input path="petname"/>
+		</fieldset>
+		<fieldset>
+			<form:label path="favteachername">Who is your favourite childhood teacher?</form:label>
+			<form:input path="favteachername"/>
+		</fieldset>
+		<fieldset>
+			<form:label path="schoolname">What is your School Name?</form:label>
+			<form:input path="schoolname"/>
+		</fieldset>
 		<input type="submit"/>
 	</form:form>
 </body>

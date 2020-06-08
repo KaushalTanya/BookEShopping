@@ -35,4 +35,16 @@ public class LoginController {
 		
 		
 	}
+	@RequestMapping(value = "/forgotpassword", method = RequestMethod.GET)
+	public String showforgotpassword(){
+		return "forgotpassword";
+	}
+	@RequestMapping(value = "/forgotpassword", method = RequestMethod.POST )
+	public String updateforpassword(@RequestParam String userid, @RequestParam String petname,@RequestParam String favteachername, @RequestParam String schoolname, @RequestParam String pass){
+		RegisterClassService cs=new RegisterClassService();
+		if((cs.updatepassword(userid, petname, favteachername, schoolname,pass))==true){
+			return "updated";
+		}
+		return "notexist";
+	}
 }

@@ -18,7 +18,9 @@ private String email;
 private String userCategory;
 private String userId;
 private String password;
-
+private String petname;
+private String favteachername;
+private String schoolname;
 //public RegisterClass(String firstName, String lastName, Date dob, String gender, String contactNo, String email,
 //String userCategory, String userId, String password) {
 //super();
@@ -102,6 +104,24 @@ RegisterClass other = (RegisterClass) obj;
 if (userId != other.userId)
 return false;
 return true;
+}
+public String getPetname() {
+	return petname;
+}
+public void setPetname(String petname) {
+	this.petname = petname;
+}
+public String getFavteachername() {
+	return favteachername;
+}
+public void setFavteachername(String favteachername) {
+	this.favteachername = favteachername;
+}
+public String getSchoolname() {
+	return schoolname;
+}
+public void setSchoolname(String schoolname) {
+	this.schoolname = schoolname;
 }
 
 

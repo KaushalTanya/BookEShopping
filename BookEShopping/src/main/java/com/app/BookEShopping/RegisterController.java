@@ -66,7 +66,7 @@ public class RegisterController {
 	    java.sql.Date sql = new java.sql.Date(d.getTime());
 		service.adddata(registerclass.getFirstName(), registerclass.getLastName(), sql, registerclass.getGender(),
 				registerclass.getContactNo(), registerclass.getEmail(), registerclass.getUserCategory(),
-				registerclass.getUserId(), registerclass.getPassword());
+				registerclass.getUserId(), registerclass.getPassword(), registerclass.getPetname(), registerclass.getFavteachername(),registerclass.getSchoolname());
 		return "welcome";
 	}
 

@@ -26,6 +26,8 @@
 			
 		</form>
 		Register to create your account: <a href="/registeruser">Register</a>
+		<a href="/forgotpassword">FORGOT PASSWORD</a>
+		
 	</div>
 </body>
 </html>

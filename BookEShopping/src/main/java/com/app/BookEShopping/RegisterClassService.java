@@ -49,10 +49,15 @@ public class RegisterClassService {
 		
 	}
 	
+	
+	public boolean updatepassword(){
+		return false;
+	}
+	
 
 
 	public void adddata(String firstName, String lastName, Date dob, String gender, String contactNo, String email,
-			String userCategory, String userId, String password) {
+			String userCategory, String userId, String password,String petname,String favteachername,String schoolname) {
 		//RegisterClassService rsobj = new RegisterClassService();
 		System.out.println(firstName);
 		Connection conn=null;
@@ -70,8 +75,9 @@ public class RegisterClassService {
 //					"value"
 //					+ "(firstName,lastName,dob,gender,contactNo,email,userCategory,userId,'hj')");
 			
-			mystmt.executeUpdate("INSERT INTO `logindetails`(firstName,lastName,dob,gender,contactNo,email,userCategory,userId,pass) "
-					+ "VALUE ('"+firstName+"','"+lastName+"','"+dob+"','"+gender+"','"+contactNo+"','"+email+"','"+userCategory+"','"+userId+"','"+password+"')");
+			mystmt.executeUpdate("INSERT INTO `logindetails`(firstName,lastName,dob,gender,contactNo,email,userCategory,userId,pass,petname,favteachername,schoolname) "
+					+ "VALUE ('"+firstName+"','"+lastName+"','"+dob+"','"+gender+"','"+contactNo+"','"+email+"','"+userCategory+"','"+userId+"','"+password+
+					"','"+petname+"','"+favteachername+"','"+schoolname+"')");
 			//("INSERT INTO `time_entry`(pid,tid,rid,tspend,description) VALUE ('"+pid+"','"+tid+"','"+rid+"',"+tspent+",'"+des+"')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -82,6 +88,7 @@ public class RegisterClassService {
 		}
 
 	}
+	
 
 	public String generateuserId() {
 		Random n = new Random();
@@ -90,5 +97,35 @@ public class RegisterClassService {
 		String userid = Integer.toString(ui);
 		return userid;
 	}
+
+
+	public boolean updatepassword(String userid,String petname,String favteachername,String schoolname,String pass) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+		Statement mystmt = null;
+		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
+		String user = "root";
+		String passw = "root";
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dburl, user, passw);
+			mystmt=conn.createStatement();
+			//"select LastModified from CacheTable where url = '" + url +"'"
+			ResultSet myRs=mystmt.executeQuery("select * from  logindetails where userId = '"+userid+"'");
+			if(myRs.next()){
+				mystmt.executeUpdate("update logindetails set pass = '"+pass+"'"+"where userId = '"+userid+"'");
+				return true;
+			}
+			
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 
 }

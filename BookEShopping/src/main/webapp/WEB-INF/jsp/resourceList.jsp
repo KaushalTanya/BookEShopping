@@ -101,6 +101,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("noofcopiesavailable") %></td>
 <td><%=resultSet.getString("noofcopiessold") %></td>
 <td><%=resultSet.getString("noofcopiesreturned") %></td>
+<td><a href="/addtocart?bookname=<%=resultSet.getString("bookName") %>">ADD TO CART</a></td>
 </tr>
 
 <% 
