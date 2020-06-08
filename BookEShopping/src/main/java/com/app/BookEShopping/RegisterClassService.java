@@ -128,4 +128,39 @@ public class RegisterClassService {
 	}
 
 
+	public String returnuserid(String number, String petname, String favteachername, String schoolname, String email) {
+		// TODO Auto-generated method stub
+		
+		Connection conn=null;
+		Statement mystmt = null;
+		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
+		String user = "root";
+		String passw = "root";
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dburl, user, passw);
+			mystmt=conn.createStatement();
+			ResultSet myRs=mystmt.executeQuery("select * from  logindetails where contactNo = '"+number+"'");
+			while(myRs.next()){
+				if((myRs.getString("petname")).equals(petname)){
+					if((myRs.getString("favteachername")).equals(favteachername)){
+						if((myRs.getString("email")).equals(email)){
+							return (myRs.getString("userId"));
+						}
+					}
+				}
+			}
+			return "wrong";
+			
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "wrong";
+	}
+
+
 }

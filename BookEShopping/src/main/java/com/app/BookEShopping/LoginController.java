@@ -47,4 +47,21 @@ public class LoginController {
 		}
 		return "notexist";
 	}
+	@RequestMapping(value = "/forgotuserid", method = RequestMethod.GET)
+	public String showforgotuserid(){
+		return "forgotuserid";
+	}
+	@RequestMapping(value = "/forgotuserid", method = RequestMethod.POST )
+	public String displayuserid(ModelMap model, @RequestParam String number, @RequestParam String petname,@RequestParam String favteachername, @RequestParam String schoolname, @RequestParam String email){
+		RegisterClassService rcs=new RegisterClassService();
+		String userid=rcs.returnuserid(number, petname, favteachername, schoolname,email);
+		if(userid=="wrong"){
+			model.put("id","wrong data entered");
+		}
+		else{
+			model.put("id",userid);
+		}
+		return "forgotuserid";
+	}
+	
 }

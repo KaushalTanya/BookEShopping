@@ -35,11 +35,11 @@
 		<fieldset>
 			<form:label path="contactNo">Contact Number</form:label> 
 			<form:input type="tel" path="contactNo"
-				pattern="[7-9]{1}[0-9]{9}"/>
+				pattern="[7-9]{1}[0-9]{9}" required="required"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="email">Email</form:label> 
-			<form:input type="email" path="email"/>
+			<form:input type="email" path="email" required="required"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="userCategory">User Category</form:label> 
@@ -50,23 +50,23 @@
 		</fieldset>
 		<fieldset>
 			<form:label path="userId">User Id</form:label> 
-			<form:input path="userId" type="text" value="${userId}"/>
+			<form:input path="userId" type="text" value="${userId}" />
 		</fieldset>
 		<fieldset>
 			<form:label path="password">Password</form:label> 
-			<form:input path="password" type="text"/>
+			<form:input path="password" type="text" required="required"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="petname">What is your Pet name?</form:label>
-			<form:input path="petname"/>
+			<form:input path="petname" required="required"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="favteachername">Who is your favourite childhood teacher?</form:label>
-			<form:input path="favteachername"/>
+			<form:input path="favteachername" required="required"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="schoolname">What is your School Name?</form:label>
-			<form:input path="schoolname"/>
+			<form:input path="schoolname" required="required"/>
 		</fieldset>
 		<input type="submit"/>
 	</form:form>
