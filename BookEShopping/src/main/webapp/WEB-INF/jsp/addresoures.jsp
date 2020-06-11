@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <font color="green">${msg}</font>
 <form:form method="post" modelAttribute="bookdetails" action="/addbookdetails">
 		<fieldset>
@@ -55,33 +56,34 @@
 			<form:label path="buyingoption">Option</form:label> 
 			<form:select required="required" path="buyingoption">
 				<option value="Renting">Renting</option>
-				<option value="tobuy">tobuy</option>
+				<option value="tobuy">BUY</option>
+				<option value="rent/buy">Rent/BUY</option>
 			</form:select>
 		</fieldset>
 		<fieldset>
 			<form:label path="bookrate">Rate</form:label> 
 			<form:input type="text" path="bookrate" 
-				placeholder="Enter the Rate" required="required"/>
+				placeholder="Enter the Rate" required="required" pattern="[0-9]+ title="enter number only""/>
 		</fieldset>
 		<fieldset>
 			<form:label path="discount">Discount</form:label> 
 			<form:input type="text" path="discount"
-				placeholder="Enter the Discount (if any)"/>
+				placeholder="Enter the Discount (if any) " pattern="[0-9]+" title="enter number only"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="noofcopiesavailable">No. Of Copies Available:</form:label> 
-			<form:input type="text" path="noofcopiesavailable"
-				placeholder="Enter the no of copiesavailable"/>
+			<form:input type="number" path="noofcopiesavailable"
+				placeholder="Enter the no of copiesavailable"  value='0' min='0' pattern="[0-9]+" title="enter number only"/>
 		</fieldset>
 		<fieldset>
-			<form:label path="noofcopiessold">No. Of Copies Available:</form:label> 
+			<form:label path="noofcopiessold">No. Of Copies Sold:</form:label> 
 			<form:input type="number" path="noofcopiessold"
-				placeholder="Enter the no of copiessold" />
+				placeholder="Enter the no of copiessold" value='0' min='0' pattern="[0-9]+" title="enter number only"/>
 		</fieldset>
 		<fieldset>
-			<form:label path="noofcopiesreturned">No. Of Copies Available:</form:label> 
+			<form:label path="noofcopiesreturned">No. Of Copies Returned:</form:label> 
 			<form:input type="number" path="noofcopiesreturned"
-				placeholder="Enter the no of copiesreturned" />
+				placeholder="Enter the no of copiesreturned" value='0' min='0' pattern="[0-9]+" title="enter number only"/>
 		</fieldset>
 		<input type="submit"/>
 	</form:form>

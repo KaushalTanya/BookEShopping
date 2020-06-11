@@ -10,6 +10,7 @@
 </head>
 <body>
 	Welcome ${n}
+	<h1>IF YOU ARE TAKING BOOK ON RENT THEN DUE DATE FOR RETURN IS 15 DAYS FROM NOW</h1>
 	<form:form method="post" action="/addtocart" modelAttribute="addtocart">
 		<table>
 		<tr>

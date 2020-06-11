@@ -9,17 +9,18 @@
 </head>
 <body>
 	You are registered!!${userId}
+	<h5>All fields are mandatory</h5>
 	<form:form method="post" modelAttribute="registerclass" action="/welcome">
 		<fieldset>
 			<form:label path="firstName">First Name</form:label> 
 			<form:input type="text"
-				placeholder="Enter Your First Name" required="required"
+				placeholder="Enter Your First Name" required="required" pattern="[A-Za-z]+"
 				path="firstName"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="lastName">Last Name</form:label> 
 			<form:input type="text" path="lastName"
-				placeholder="Enter Your Last Name" required="required"/>
+				placeholder="Enter Your Last Name" required="required" pattern="[A-Za-z]+"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="dob">Date Of Birth</form:label> 
@@ -39,7 +40,7 @@
 		</fieldset>
 		<fieldset>
 			<form:label path="email">Email</form:label> 
-			<form:input type="email" path="email" required="required"/>
+			<form:input type="email" path="email" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="not a valid email"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="userCategory">User Category</form:label> 
@@ -54,7 +55,8 @@
 		</fieldset>
 		<fieldset>
 			<form:label path="password">Password</form:label> 
-			<form:input path="password" type="password" required="required"/>
+			<form:input path="password" type="password" required="required"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="petname">What is your Pet name?</form:label>

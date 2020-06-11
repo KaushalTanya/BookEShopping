@@ -87,6 +87,7 @@ public class CustomerController
 		//bookdetails.addtocartdatabase(addtocart.getUserid(),addtocart.getBookname(), addtocart.getBookprice(), addtocart.getQuanity(), addtocart.getRentbuy(), addtocart.getDeliveryAddress());
 		
 		model.put("bookname", addtocart.getBookname());
+		model.put("quan", addtocart.getQuanity());
 
 		return "processtopayment";
 
@@ -94,7 +95,7 @@ public class CustomerController
 	
 	@RequestMapping(value = "/order", method = RequestMethod.POST)
 
-	public String order(@RequestParam String bookname,@RequestParam String cardnumber,@RequestParam String cvv,@RequestParam Date date, ModelMap model) {
+	public String order(@RequestParam String bookname,@RequestParam String cardnumber,@RequestParam String cvv,@RequestParam Date date,@RequestParam int quan, ModelMap model) {
 		BookDetailsdao bookdetails = new BookDetailsdao();
 
 		System.out.println(date);
@@ -103,7 +104,7 @@ public class CustomerController
 		System.out.println(sql);
 		
 		bookdetails.addcarddetails(bookname,cardnumber, cvv, sql);
-		
+		bookdetails.ordered(bookname,quan);
 		model.put("message", "ORDER PLACED");
 		
 		return "processtopayment";

@@ -9,6 +9,7 @@
 <body>
 <font color="green">${message}</font>
 <form method="post" action="/order">
+<input value="${quan}" name="quan"/>
 	<table>
 		<tr>
 			<td><input type="text" value="${bookname}" name="bookname"/></td>
@@ -19,7 +20,7 @@
 		</tr>
 		<tr>
 			<td><label>CVV</label></td>
-			<td><input type="password" pattern="[0-9]{4}" name="cvv" required="required"/> </td>
+			<td><input type="password" pattern="[0-9]{3}" name="cvv" required="required"/> </td>
 		</tr>
 		<tr>
 			<td><label>EXPIRY DATE:</label></td>
