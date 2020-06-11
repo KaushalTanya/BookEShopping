@@ -1,36 +1,28 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <title>ResourceList</title>
 </head>
 <body>
-<br>
-<form method="post" action="/categoryResList">
-  <label for="books">Category of book:</label>
-  <select name="bookscat" id="bookscat">
-    <option value="fiction">Fiction</option>
-    <option value="sci fi">Sci Fi</option>
-    <option value="horror">Horror</option>
-    <option value="personality development">Personality Development</option>
-    <option value="reference">Reference</option>
-    <option value="novels">Novels</option>
-    <option value="comic">Comic</option>
-    <option value="kids books">Kids Books</option>
+<form method="post" action="/sortResList">
+  <label for="books">Sorting Order:</label>
+  <select name="books" id="books">
+    
+    <option value="sort by title">Sort by Title(A to Z)</option>
+    <option value="sort by title">Sort by Title(Z to A)</option>
+    <option value="sort by author">Sort by Author(A to Z)</option>
+    <option value="sort by author">Sort by Author(Z to A)</option>
+    <option value="sort by category">Sort by Category(A to Z)</option>
+    <option value="sort by category">Sort by Category(Z to A)</option> 
   </select>
   
-  <input type="submit" name="categoryResList" value=" category resource list"/>
+  <input type="submit" name="sortResList" value="sort resource list"/>
 </form>
-
-<br>
-<a href="/searchbookform">Basic Search</a><br>
-<a href="/advancedSearchBook">Advanced Search</a>
-
 </body>
 </html>
 
-<br><br><br><br><br>
-
+<br>
+<br>
 
 
 <%@page import="java.sql.DriverManager"%>
@@ -39,28 +31,22 @@
 <%@page import="java.sql.Connection"%>
 
 <%
+String cat = request.getParameter("bookscat");
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
 String dbName = "bookshopping";
 String userId = "root";
 String password = "root";
 
-//try {
-// Class.forName(driverName);
-//} catch (ClassNotFoundException e) {
-//e.printStackTrace();
-//}
 
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
 %>
-<h2 align="center"><font><strong>Retrieve data from database in jsp</strong></font></h2>
+
 <table align="center" cellpadding="5" cellspacing="5" border="1">
 <tr>
 
-</tr>
-<tr>
 <td><b>bookName</b></td>
 <td><b>bookCode</b></td>
 <td><b>bookDesc</b></td>
@@ -78,13 +64,12 @@ ResultSet resultSet = null;
 try{ 
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 statement=connection.createStatement();
-String sql ="SELECT * FROM bookdetails";
 
-resultSet = statement.executeQuery(sql);
+resultSet = statement.executeQuery("select * from bookdetails where bookcategory ='"+cat+"'");
 while(resultSet.next()){
 %>
-<tr>
 
+<tr>
 <td><%=resultSet.getString("bookName") %></td>
 <td><%=resultSet.getString("bookCode") %></td>
 <td><%=resultSet.getString("bookDesc") %></td>
@@ -97,7 +82,6 @@ while(resultSet.next()){
 <td><%=resultSet.getString("noofcopiesavailable") %></td>
 <td><%=resultSet.getString("noofcopiessold") %></td>
 <td><%=resultSet.getString("noofcopiesreturned") %></td>
-<td><a href="/addtocart?booknameandid=<%=resultSet.getString("bookName") %>,${userid}">ADD TO CART</a></td>
 </tr>
 
 <% 
@@ -108,3 +92,4 @@ e.printStackTrace();
 }
 %>
 </table>
+

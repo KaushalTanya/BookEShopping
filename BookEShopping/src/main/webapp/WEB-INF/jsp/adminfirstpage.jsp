@@ -8,5 +8,6 @@
 </head>
 <body>
 	WELCOME ADMIN ${u}
+	<a href="/addresoures">Add Book Details</a>
 </body>
 </html>

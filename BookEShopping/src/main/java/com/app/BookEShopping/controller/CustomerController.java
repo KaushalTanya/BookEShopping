@@ -110,6 +110,12 @@ public class CustomerController
 
 	}
 	
+	@RequestMapping(value="/searchbook", method = RequestMethod.POST)
+	public String showSearchBookPage(ModelMap model){
+	//model.put("name", name);
+	return "searchbook";
+	}
+	
 
 
 }

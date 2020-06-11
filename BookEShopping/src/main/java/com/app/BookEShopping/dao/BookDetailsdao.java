@@ -124,6 +124,65 @@ public class BookDetailsdao {
 
 		
 	}
+
+	public void addbookdata(String bookName, String bookCode, String bookDesc, String author, String bookcategory,
+			String booktype, String buyingoption, String bookrate, int discount,int copies) {
+		
+		Connection conn=null;
+
+		Statement mystmt = null;
+
+		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
+
+		String user = "root";
+
+		String pass = "root";
+
+		try {
+
+			
+
+			Class.forName("com.mysql.jdbc.Driver");
+
+			conn = DriverManager.getConnection(dburl, user, pass);
+
+			mystmt = conn.createStatement();
+
+//			int ra = mystmt.executeUpdate("insert into logindetails"
+
+//					+ "(firstName,lastName,dob,gender,contactNo,email,userCategory,userId,pass)" + 
+
+//					"value"
+
+//					+ "(firstName,lastName,dob,gender,contactNo,email,userCategory,userId,'hj')");
+
+			
+
+			mystmt.executeUpdate("INSERT INTO `bookdetails`(bookName,bookCode,bookDesc,author,bookcategory,booktype,buyingoption,bookrate,discount,noofcopiesavailable) "
+
+					+ "VALUE ('"+bookName+"','"+bookCode+"','"+bookDesc+"','"+author+"','"+bookcategory+"','"+booktype+"','"+buyingoption+"','"+bookrate+"','"+discount+"','"+copies+"')");
+
+			//("INSERT INTO `time_entry`(pid,tid,rid,tspend,description) VALUE ('"+pid+"','"+tid+"','"+rid+"',"+tspent+",'"+des+"')");
+			conn.close();
+			mystmt.close();
+
+		} catch (SQLException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		} catch (ClassNotFoundException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
+
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 		
