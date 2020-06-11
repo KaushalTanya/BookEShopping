@@ -57,7 +57,6 @@ placeholder="enter author name">
 
 </tbody>
 </table>
-${list}
 
 </div>
 </body>

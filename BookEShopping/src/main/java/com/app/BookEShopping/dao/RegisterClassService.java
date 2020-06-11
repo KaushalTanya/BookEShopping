@@ -77,6 +77,8 @@ public class RegisterClassService {
 				}
 
 			}
+			conn.close();
+			mystmt.close();
 
 		}catch (SQLException e) {
 
@@ -159,6 +161,8 @@ public class RegisterClassService {
 					"','"+petname+"','"+favteachername+"','"+schoolname+"')");
 
 			//("INSERT INTO `time_entry`(pid,tid,rid,tspend,description) VALUE ('"+pid+"','"+tid+"','"+rid+"',"+tspent+",'"+des+"')");
+			conn.close();
+			mystmt.close();
 
 		} catch (SQLException e) {
 
@@ -301,6 +305,8 @@ public class RegisterClassService {
 				}
 
 			}
+			conn.close();
+			mystmt.close();
 
 			return "wrong";
 

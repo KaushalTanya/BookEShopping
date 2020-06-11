@@ -60,7 +60,6 @@ pageEncoding="ISO-8859-1"%>
 
 </tbody>
 </table>
-${list}
 
 </div>
 </body>

@@ -34,7 +34,8 @@ while (myRs.next())
 {
 	BookDetails book=new BookDetails();
 	book.setBookName(myRs.getString("bookName"));
-	book.setBookCode(myRs.getString("bookDesc"));
+	book.setBookCode(myRs.getString("bookCode"));
+	book.setBookDesc((myRs.getString("bookDesc")));
 	book.setAuthor((myRs.getString("author")));
 	book.setBookcategory(myRs.getString("bookcategory"));
 	book.setBooktype(myRs.getString("booktype"));
