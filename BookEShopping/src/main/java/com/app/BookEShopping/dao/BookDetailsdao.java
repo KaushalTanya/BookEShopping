@@ -37,7 +37,12 @@ public class BookDetailsdao {
 			if(myRs.next()){
 				double mrp=Integer.parseInt(myRs.getString("bookrate"));
 				int dis=myRs.getInt("discount");
-				price=(mrp*dis)/100;
+				if(dis>0){
+					price=(mrp*dis)/100;
+				}
+				else{
+					price=mrp;
+				}
 				
 				String quan=Integer.toString(myRs.getInt("noofcopiesavailable"));
 				
