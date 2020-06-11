@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>ResourceList</title>
 </head>
 <body>
+Welcome !!!${id}
+<input value=${userid} name="id"/>
 <form>
   <label for="books">Category of book:</label>
   <select name="books" id="books">
@@ -42,7 +45,6 @@
 <%@page import="java.sql.Connection"%>
 
 <%
-String id = request.getParameter("userId");
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
 String dbName = "bookshopping";
@@ -64,7 +66,7 @@ ResultSet resultSet = null;
 <tr>
 
 </tr>
-<tr bgcolor="#A52A2A">
+<tr>
 <td><b>bookName</b></td>
 <td><b>bookCode</b></td>
 <td><b>bookDesc</b></td>
@@ -87,7 +89,7 @@ String sql ="SELECT * FROM bookdetails";
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
-<tr bgcolor="#DEB887">
+<tr>
 
 <td><%=resultSet.getString("bookName") %></td>
 <td><%=resultSet.getString("bookCode") %></td>
@@ -101,7 +103,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("noofcopiesavailable") %></td>
 <td><%=resultSet.getString("noofcopiessold") %></td>
 <td><%=resultSet.getString("noofcopiesreturned") %></td>
-<td><a href="/addtocart?bookname=<%=resultSet.getString("bookName") %>">ADD TO CART</a></td>
+<td><a href="/addtocart?booknameandid=<%=resultSet.getString("bookName") %>,${userid}">ADD TO CART</a></td>
 </tr>
 
 <% 

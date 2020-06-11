@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,25 +9,31 @@
 </head>
 <body>
 	<div>
+	<br><br>
 		<form method="POST" action="/login">
 		<font color="red">${errorMessage}</font>
 			<div>
 				<fieldset>
 					<label>User Id</label> <input type="text" name="userid"
-						placeholder="enter your user id" >
+						placeholder="enter your user id" required="required">
 				</fieldset>
 			</div>
+			<br>
 			<div>
 				<fieldset>
 					<label>Password</label> <input type="password" name="pswrd"
-						placeholder="enter your password">
+						placeholder="enter your password" required="required">
 				</fieldset>
 			</div>
-			<input type="submit" placeholder="Login"> Click here to
+			<br>
+			<input type="submit" value="Login"> 
 			
 		</form>
-		Register to create your account: <a href="/registeruser">Register</a>
+		<br><br>
+		Click here to Register to create your account: <a href="/registeruser">Register</a>
+		<br><br>
 		<a href="/forgotpassword">FORGOT PASSWORD</a>
+		<br><br>
 		<a href="/forgotuserid">FORGOT USERID</a>
 		
 	</div>

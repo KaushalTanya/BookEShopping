@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-registered!!!${userId}!!!
-${dob}
-!!!
-${a}!!!${b}!!!${c}!!!${d}!!!${e}!!!${f}!!!${g}!!!${h}
+
+You Are Registered !!<br><br>Your user id is ${userId}!!
+
+
 </body>
 </html>

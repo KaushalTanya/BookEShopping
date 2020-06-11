@@ -50,11 +50,11 @@
 		</fieldset>
 		<fieldset>
 			<form:label path="userId">User Id</form:label> 
-			<form:input path="userId" type="text" value="${userId}" />
+			<form:input path="userId" type="text" value="${userId}" disabled="disabled"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="password">Password</form:label> 
-			<form:input path="password" type="text" required="required"/>
+			<form:input path="password" type="password" required="required"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="petname">What is your Pet name?</form:label>
