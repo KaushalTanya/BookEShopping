@@ -70,6 +70,31 @@ public class AddminController {
 		model.put("msg", "BOOK DETAILS UPDATED SUCCESSFULLY");
 		return "updatebook";
 	}
+	// /
+	@RequestMapping(value = "/seeallordersinadmin", method = RequestMethod.GET)
+	public String seeallordersplaces( ModelMap model) {
+		
+	 return "seeallordersinadmin";
+	}
+	
+	@RequestMapping(value="/updatestatus",method=RequestMethod.GET)
+	public String updatestatus(@RequestParam String status,ModelMap model){
+		
+		String[] s=status.split(",");
+		model.put("status",s[0]);
+		model.put("bookname",s[1]);
+		model.put("userid",s[2]);
+		return "updatestatus";
+	}
+	// /
+	@RequestMapping(value="/updatetrack",method=RequestMethod.POST)
+	public String updatetrack(@RequestParam String userid,@RequestParam String name,@RequestParam String status,ModelMap model){
+		BookDetailsdao dao=new BookDetailsdao();
+		dao.updatestatus(userid,name,status);
+		model.put("msg","updated");
+		return "updatestatus";
+	}
+	
 
 	
 	

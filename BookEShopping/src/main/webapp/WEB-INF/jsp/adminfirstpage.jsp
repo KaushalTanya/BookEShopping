@@ -10,5 +10,6 @@
 	WELCOME ADMIN ${u}
 	<a href="/addresoures">Add Book Details</a>
 	<a href="/showbookdetails"> Resources List</a>
+	<a href="/seeallordersinadmin">Orders</a>
 </body>
 </html>

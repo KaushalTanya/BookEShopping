@@ -323,11 +323,35 @@ public class BookDetailsdao {
 		
 		
 	}
-	
-	
-	
-	
+
+	public void updatestatus(String userid, String name, String status) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+
+		Statement mystmt = null;
+		try{
+			conn=DbConnection.returnConnectionObject();
+			mystmt=conn.createStatement();
+			mystmt.executeUpdate("update addtocart set trackstatus = '"+status+"'"+"where userid = '"+userid+"'"+"and bookname = '"+name+"'");
+		}catch (SQLException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
+		
+		
+
+		
+		
+		
 	}
+	
+	
+	
+	
+}
 	
 	
 		
