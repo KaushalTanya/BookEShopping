@@ -28,12 +28,13 @@ public class BookDetailsdao {
 
 		
 		try{
-			Properties prp = new Properties();
-			prp.load(new FileInputStream("src/main/resources/connection.properties"));
-			String dburl = prp.getProperty("DB_URL");
-			String user = prp.getProperty("DB_USERNAME");
-			String passw = prp.getProperty("DB_PASSWORD");
-			conn = DriverManager.getConnection(dburl, user, passw);
+//			Properties prp = new Properties();
+//			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+//			String dburl = prp.getProperty("DB_URL");
+//			String user = prp.getProperty("DB_USERNAME");
+//			String passw = prp.getProperty("DB_PASSWORD");
+//			conn = DriverManager.getConnection(dburl, user, passw);
+			conn=DbConnection.returnConnectionObject();
 			mystmt=conn.createStatement();
 
 			//"select LastModified from CacheTable where url = '" + url +"'"
@@ -66,12 +67,6 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return data;
 
@@ -85,12 +80,13 @@ public class BookDetailsdao {
 
 		
 		try{
-			Properties prp = new Properties();
-			prp.load(new FileInputStream("src/main/resources/connection.properties"));
-			String dburl = prp.getProperty("DB_URL");
-			String user = prp.getProperty("DB_USERNAME");
-			String passw = prp.getProperty("DB_PASSWORD");
-			conn = DriverManager.getConnection(dburl, user, passw);
+//			Properties prp = new Properties();
+//			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+//			String dburl = prp.getProperty("DB_URL");
+//			String user = prp.getProperty("DB_USERNAME");
+//			String passw = prp.getProperty("DB_PASSWORD");
+//			conn = DriverManager.getConnection(dburl, user, passw);
+			conn=DbConnection.returnConnectionObject();
 			mystmt = conn.createStatement();
 			
 
@@ -108,12 +104,6 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
 		
@@ -126,12 +116,13 @@ public class BookDetailsdao {
 
 		
 		try{
-			Properties prp = new Properties();
-			prp.load(new FileInputStream("src/main/resources/connection.properties"));
-			String dburl = prp.getProperty("DB_URL");
-			String user = prp.getProperty("DB_USERNAME");
-			String passw = prp.getProperty("DB_PASSWORD");
-			conn = DriverManager.getConnection(dburl, user, passw);
+//			Properties prp = new Properties();
+//			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+//			String dburl = prp.getProperty("DB_URL");
+//			String user = prp.getProperty("DB_USERNAME");
+//			String passw = prp.getProperty("DB_PASSWORD");
+//			conn = DriverManager.getConnection(dburl, user, passw);
+			conn=DbConnection.returnConnectionObject();
 			mystmt = conn.createStatement();
 			
 
@@ -148,12 +139,6 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
 		
@@ -172,12 +157,13 @@ public class BookDetailsdao {
 
 			
 
-			Properties prp = new Properties();
-			prp.load(new FileInputStream("src/main/resources/connection.properties"));
-			String dburl = prp.getProperty("DB_URL");
-			String user = prp.getProperty("DB_USERNAME");
-			String passw = prp.getProperty("DB_PASSWORD");
-			conn = DriverManager.getConnection(dburl, user, passw);
+//			Properties prp = new Properties();
+//			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+//			String dburl = prp.getProperty("DB_URL");
+//			String user = prp.getProperty("DB_USERNAME");
+//			String passw = prp.getProperty("DB_PASSWORD");
+//			conn = DriverManager.getConnection(dburl, user, passw);
+			conn=DbConnection.returnConnectionObject();
 
 			mystmt = conn.createStatement();
 
@@ -207,12 +193,6 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
 		// TODO Auto-generated method stub
@@ -225,12 +205,13 @@ public class BookDetailsdao {
 		Statement mystmt = null;
 
 		try{
-			Properties prp = new Properties();
-			prp.load(new FileInputStream("src/main/resources/connection.properties"));
-			String dburl = prp.getProperty("DB_URL");
-			String user = prp.getProperty("DB_USERNAME");
-			String passw = prp.getProperty("DB_PASSWORD");
-			conn = DriverManager.getConnection(dburl, user, passw);
+//			Properties prp = new Properties();
+//			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+//			String dburl = prp.getProperty("DB_URL");
+//			String user = prp.getProperty("DB_USERNAME");
+//			String passw = prp.getProperty("DB_PASSWORD");
+//			conn = DriverManager.getConnection(dburl, user, passw);
+			conn=DbConnection.returnConnectionObject();
 			mystmt=conn.createStatement();
 
 			//"select LastModified from CacheTable where url = '" + url +"'"
@@ -255,12 +236,6 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 	}
@@ -271,12 +246,13 @@ public class BookDetailsdao {
 		
 		try
 		{
-			Properties prp = new Properties();
-			prp.load(new FileInputStream("src/main/resources/connection.properties"));
-			String dburl = prp.getProperty("DB_URL");
-			String user = prp.getProperty("DB_USERNAME");
-			String passw = prp.getProperty("DB_PASSWORD");
-			conn = DriverManager.getConnection(dburl, user, passw);
+//			Properties prp = new Properties();
+//			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+//			String dburl = prp.getProperty("DB_URL");
+//			String user = prp.getProperty("DB_USERNAME");
+//			String passw = prp.getProperty("DB_PASSWORD");
+//			conn = DriverManager.getConnection(dburl, user, passw);
+			conn=DbConnection.returnConnectionObject();
 		mystmt=conn.createStatement();
 		ResultSet myRs=mystmt.executeQuery("select * from  bookdetails where bookCode = '"+bookcode+"'");
 		if (myRs.next()) 
@@ -299,12 +275,6 @@ public class BookDetailsdao {
 		catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return book;
 		}
@@ -317,12 +287,13 @@ public class BookDetailsdao {
 
 		
 		try{
-			Properties prp = new Properties();
-			prp.load(new FileInputStream("src/main/resources/connection.properties"));
-			String dburl = prp.getProperty("DB_URL");
-			String user = prp.getProperty("DB_USERNAME");
-			String passw = prp.getProperty("DB_PASSWORD");
-			conn = DriverManager.getConnection(dburl, user, passw);
+//			Properties prp = new Properties();
+//			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+//			String dburl = prp.getProperty("DB_URL");
+//			String user = prp.getProperty("DB_USERNAME");
+//			String passw = prp.getProperty("DB_PASSWORD");
+//			conn = DriverManager.getConnection(dburl, user, passw);
+			conn=DbConnection.returnConnectionObject();
 			mystmt=conn.createStatement();
 
 			//"select LastModified from CacheTable where url = '" + url +"'"
@@ -348,12 +319,6 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		
