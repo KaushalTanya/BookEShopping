@@ -4,10 +4,11 @@
 <%@ page import="java.io.*" %> 
 <html>
 <head>
-<title>Resoure List</title>
+<title>Resource List</title>
 </head>
 <body>
-<h2>Resoure List</h2>
+<h2>Resource List</h2>
+<font color="green">${msg}</font>
 <%
 try {
 
@@ -32,7 +33,10 @@ rs = statement.executeQuery(QueryString);
 <TH>Option</TH>
 <TH>Rate</TH>
 <TH>Discount</TH>
-
+<th>no of copies available</th>
+<th>no of copies sold</th>
+<th>no of copies returned</th>
+<th>ARCHIEVE</th>
 </TR>
 <%
 while (rs.next()) {
@@ -47,7 +51,13 @@ while (rs.next()) {
 <TD><%=rs.getString(7)%></TD>
 <TD><%=rs.getString(8)%></TD>
 <TD><%=rs.getInt(9)%></TD>
+<TD><%=rs.getInt(10)%></TD>
+<TD><%=rs.getInt(11)%></TD>
+<TD><%=rs.getInt(12)%></TD>
+<TD><%=rs.getString(13)%></TD>
 
+<td><a href="/archieve?bookcode=<%=rs.getString(2)%>">Archive</a></td>
+<td><a href="/unarchieve?bookcode=<%=rs.getString(2)%>">Undo archive</a></td>
 </TR>
 <% } %>
 <%

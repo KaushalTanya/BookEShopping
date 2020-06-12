@@ -94,7 +94,21 @@ public class AddminController {
 		model.put("msg","updated");
 		return "updatestatus";
 	}
-	
+	@RequestMapping(value="/archieve",method=RequestMethod.GET)
+	public String archieve(@RequestParam String bookcode,ModelMap model){
+		BookDetailsdao dao=new BookDetailsdao();
+		dao.archievebook(bookcode);
+		model.put("msg", "Archieved");
+		return "showbookdetails";
+	}
+	// unarchieve
+	@RequestMapping(value="/unarchieve",method=RequestMethod.GET)
+	public String unarchieve(@RequestParam String bookcode,ModelMap model){
+		BookDetailsdao dao=new BookDetailsdao();
+		dao.unarchievebook(bookcode);
+		model.put("msg", "UNArchieved");
+		return "showbookdetails";
+	}
 
 	
 	

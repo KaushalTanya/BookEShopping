@@ -78,7 +78,7 @@ ResultSet resultSet = null;
 try{ 
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 statement=connection.createStatement();
-String sql ="SELECT * FROM bookdetails";
+String sql ="SELECT * FROM bookdetails where archieve = 'no' ";
 
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){

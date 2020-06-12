@@ -39,7 +39,7 @@ public class BookDetailsdao {
 
 			//"select LastModified from CacheTable where url = '" + url +"'"
 
-			ResultSet myRs=mystmt.executeQuery("select * from  bookdetails where bookname = '"+bookname+"'");
+			ResultSet myRs=mystmt.executeQuery("select * from  bookdetails where bookname = '"+bookname+"'"+"and archieve = 'no'");
 			if(myRs.next()){
 				double mrp=Integer.parseInt(myRs.getString("bookrate"));
 				int dis=myRs.getInt("discount");
@@ -166,6 +166,7 @@ public class BookDetailsdao {
 			conn=DbConnection.returnConnectionObject();
 
 			mystmt = conn.createStatement();
+			String a="no";
 
 //			int ra = mystmt.executeUpdate("insert into logindetails"
 
@@ -177,10 +178,10 @@ public class BookDetailsdao {
 
 			
 
-			mystmt.executeUpdate("INSERT INTO `bookdetails`(bookName,bookCode,bookDesc,author,bookcategory,booktype,buyingoption,bookrate,discount,noofcopiesavailable,noofcopiessold,noofcopiesreturned) "
+			mystmt.executeUpdate("INSERT INTO `bookdetails`(bookName,bookCode,bookDesc,author,bookcategory,booktype,buyingoption,bookrate,discount,noofcopiesavailable,noofcopiessold,noofcopiesreturned,archieve) "
 
 					+ "VALUE ('"+bookName+"','"+bookCode+"','"+bookDesc+"','"+author+"','"+bookcategory+"','"+booktype+"','"+buyingoption+"','"+bookrate+"','"+discount+"','"+copies+
-					"','"+sold+"','"+retu+
+					"','"+sold+"','"+retu+"','"+a+
 					"')");
 
 			//("INSERT INTO `time_entry`(pid,tid,rid,tspend,description) VALUE ('"+pid+"','"+tid+"','"+rid+"',"+tspent+",'"+des+"')");
@@ -346,6 +347,45 @@ public class BookDetailsdao {
 		
 		
 		
+	}
+	public void archievebook(String bookcode){
+		Connection conn=null;
+
+		Statement mystmt = null;
+		String a="yes";
+		try{
+			conn=DbConnection.returnConnectionObject();
+			mystmt=conn.createStatement();
+			
+			mystmt.executeUpdate("update bookdetails set archieve = '"+a+"'"+"where bookCode = '"+bookcode+"'");
+		}catch (SQLException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
+		
+	}
+
+	public void unarchievebook(String bookcode) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+
+		Statement mystmt = null;
+		String a="no";
+		try{
+			conn=DbConnection.returnConnectionObject();
+			mystmt=conn.createStatement();
+			
+			mystmt.executeUpdate("update bookdetails set archieve = '"+a+"'"+"where bookCode = '"+bookcode+"'");
+		}catch (SQLException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
 	}
 	
 	
