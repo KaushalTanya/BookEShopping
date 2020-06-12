@@ -89,10 +89,15 @@ public class LoginController {
 
 		RegisterClassService cs=new RegisterClassService();
 
-		if((cs.updatepassword(userid, petname, favteachername, schoolname,pass))==true){
+		try {
+			if((cs.updatepassword(userid, petname, favteachername, schoolname,pass))==true){
 
-			return "updated";
+				return "updated";
 
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		return "notexist";

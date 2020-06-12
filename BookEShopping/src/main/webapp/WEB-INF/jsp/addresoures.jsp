@@ -63,7 +63,7 @@
 		<fieldset>
 			<form:label path="bookrate">Rate</form:label> 
 			<form:input type="text" path="bookrate" 
-				placeholder="Enter the Rate" required="required" pattern="[0-9]+ title="enter number only""/>
+				placeholder="Enter the Rate" required="required" pattern="[0-9]+" title="enter number only"/>
 		</fieldset>
 		<fieldset>
 			<form:label path="discount">Discount</form:label> 

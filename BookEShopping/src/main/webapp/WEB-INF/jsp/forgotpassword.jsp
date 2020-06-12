@@ -11,23 +11,25 @@
 	<form method="post" action="/forgotpassword">
 		
 		<fieldset>
-					<label>User Id</label> <input type="text" name="userid">
+					<label>User Id</label> 
+					<input type="text" name="userid" required="required"/>
 		</fieldset>
 		<fieldset>
 			<label>What is your Pet name?</label>
-			<input name="petname"/>
+			<input name="petname" required="required"/>
 		</fieldset>
 		<fieldset>
 			<label>Who is your favourite childhood teacher?</label>
-			<input name="favteachername"/>
+			<input name="favteachername" required="required"/>
 		</fieldset>
 		<fieldset>
 			<label>What is your School Name?</label>
-			<input name="schoolname"/>
+			<input name="schoolname" required="required"/>
 		</fieldset>	
 		<fieldset>
 			<label>New Password</label>
-			<input name="pass"/>
+			<input name="pass" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"/>
 		</fieldset>	
 		<input type="submit"/>
 	</form>

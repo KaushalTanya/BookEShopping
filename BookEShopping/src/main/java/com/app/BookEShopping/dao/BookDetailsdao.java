@@ -1,5 +1,8 @@
 package com.app.BookEShopping.dao;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -9,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import com.app.BookEShopping.BookDetails;
 
@@ -22,13 +26,14 @@ public class BookDetailsdao {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String pass = "root";
+		
 		try{
-			conn = DriverManager.getConnection(dburl, user, pass);
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
+			conn = DriverManager.getConnection(dburl, user, passw);
 			mystmt=conn.createStatement();
 
 			//"select LastModified from CacheTable where url = '" + url +"'"
@@ -61,6 +66,12 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return data;
 
@@ -72,13 +83,14 @@ public class BookDetailsdao {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String pass = "root";
+		
 		try{
-			conn = DriverManager.getConnection(dburl, user, pass);
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
+			conn = DriverManager.getConnection(dburl, user, passw);
 			mystmt = conn.createStatement();
 			
 
@@ -96,6 +108,12 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		
@@ -106,13 +124,14 @@ public class BookDetailsdao {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String pass = "root";
+		
 		try{
-			conn = DriverManager.getConnection(dburl, user, pass);
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
+			conn = DriverManager.getConnection(dburl, user, passw);
 			mystmt = conn.createStatement();
 			
 
@@ -129,6 +148,12 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		
@@ -141,19 +166,18 @@ public class BookDetailsdao {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String pass = "root";
+	
 
 		try {
 
 			
 
-			Class.forName("com.mysql.jdbc.Driver");
-
-			conn = DriverManager.getConnection(dburl, user, pass);
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
+			conn = DriverManager.getConnection(dburl, user, passw);
 
 			mystmt = conn.createStatement();
 
@@ -183,12 +207,12 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
-		} catch (ClassNotFoundException e) {
-
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-
 			e.printStackTrace();
-
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		// TODO Auto-generated method stub
@@ -200,13 +224,13 @@ public class BookDetailsdao {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String pass = "root";
 		try{
-			conn = DriverManager.getConnection(dburl, user, pass);
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
+			conn = DriverManager.getConnection(dburl, user, passw);
 			mystmt=conn.createStatement();
 
 			//"select LastModified from CacheTable where url = '" + url +"'"
@@ -231,6 +255,12 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}
@@ -238,13 +268,15 @@ public class BookDetailsdao {
 		BookDetails book=new BookDetails();
 		Connection conn=null;
 		Statement mystmt = null;
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-		String user = "root";
-		String passw = "root";
+		
 		try
 		{
-		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(dburl, user, passw);
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
+			conn = DriverManager.getConnection(dburl, user, passw);
 		mystmt=conn.createStatement();
 		ResultSet myRs=mystmt.executeQuery("select * from  bookdetails where bookCode = '"+bookcode+"'");
 		if (myRs.next()) 
@@ -267,9 +299,12 @@ public class BookDetailsdao {
 		catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return book;
 		}
@@ -280,13 +315,14 @@ public class BookDetailsdao {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String pass = "root";
+		
 		try{
-			conn = DriverManager.getConnection(dburl, user, pass);
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
+			conn = DriverManager.getConnection(dburl, user, passw);
 			mystmt=conn.createStatement();
 
 			//"select LastModified from CacheTable where url = '" + url +"'"
@@ -312,6 +348,12 @@ public class BookDetailsdao {
 
 			e.printStackTrace();
 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		

@@ -2,6 +2,9 @@ package com.app.BookEShopping.dao;
 
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 
 import java.sql.Date;
@@ -19,7 +22,7 @@ import java.util.ArrayList;
 //import java.util.Date;
 
 import java.util.List;
-
+import java.util.Properties;
 import java.util.Random;
 
 
@@ -44,18 +47,13 @@ public class RegisterClassService {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String passw = "root";
-
 		try{
-
-			Class.forName("com.mysql.jdbc.Driver");
-
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
 			conn = DriverManager.getConnection(dburl, user, passw);
-
 			mystmt=conn.createStatement();
 
 			//"select LastModified from CacheTable where url = '" + url +"'"
@@ -86,12 +84,12 @@ public class RegisterClassService {
 
 			e.printStackTrace();
 
-		} catch (ClassNotFoundException e) {
-
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-
 			e.printStackTrace();
-
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		return usercategory;
@@ -99,21 +97,6 @@ public class RegisterClassService {
 		
 
 	}
-
-	
-
-	
-
-	public boolean updatepassword(){
-
-		return false;
-
-	}
-
-	
-
-
-
 
 
 	public void adddata(String firstName, String lastName, Date dob, String gender, String contactNo, String email,
@@ -128,20 +111,18 @@ public class RegisterClassService {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String pass = "root";
+		
 
 		try {
 
 			
 
-			Class.forName("com.mysql.jdbc.Driver");
-
-			conn = DriverManager.getConnection(dburl, user, pass);
-
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
+			conn = DriverManager.getConnection(dburl, user, passw);
 			mystmt = conn.createStatement();
 
 //			int ra = mystmt.executeUpdate("insert into logindetails"
@@ -170,12 +151,12 @@ public class RegisterClassService {
 
 			e.printStackTrace();
 
-		} catch (ClassNotFoundException e) {
-
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-
 			e.printStackTrace();
-
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 
@@ -204,7 +185,7 @@ public class RegisterClassService {
 
 
 
-	public boolean updatepassword(String userid,String petname,String favteachername,String schoolname,String pass) {
+	public boolean updatepassword(String userid,String petname,String favteachername,String schoolname,String pass) throws ClassNotFoundException {
 
 		// TODO Auto-generated method stub
 
@@ -212,16 +193,15 @@ public class RegisterClassService {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String passw = "root";
 
 		try{
 
-			Class.forName("com.mysql.jdbc.Driver");
-
+			//Class.forName("com.mysql.jdbc.Driver");
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
 			conn = DriverManager.getConnection(dburl, user, passw);
 
 			mystmt=conn.createStatement();
@@ -246,12 +226,12 @@ public class RegisterClassService {
 
 			e.printStackTrace();
 
-		} catch (ClassNotFoundException e) {
-
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-
 			e.printStackTrace();
-
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		return false;
@@ -272,18 +252,18 @@ public class RegisterClassService {
 
 		Statement mystmt = null;
 
-		String dburl = "jdbc:mysql://localhost:3306/bookshopping?useSSL=false";
-
-		String user = "root";
-
-		String passw = "root";
+		
 
 		try{
 
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
 
+			Properties prp = new Properties();
+			prp.load(new FileInputStream("src/main/resources/connection.properties"));
+			String dburl = prp.getProperty("DB_URL");
+			String user = prp.getProperty("DB_USERNAME");
+			String passw = prp.getProperty("DB_PASSWORD");
 			conn = DriverManager.getConnection(dburl, user, passw);
-
 			mystmt=conn.createStatement();
 
 			ResultSet myRs=mystmt.executeQuery("select * from  logindetails where contactNo = '"+number+"'");
@@ -318,12 +298,12 @@ public class RegisterClassService {
 
 			e.printStackTrace();
 
-		} catch (ClassNotFoundException e) {
-
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-
 			e.printStackTrace();
-
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		return "wrong";
