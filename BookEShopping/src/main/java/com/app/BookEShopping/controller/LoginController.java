@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.app.BookEShopping.dao.BookDetailsdao;
 import com.app.BookEShopping.dao.RegisterClassService;
 
 
@@ -52,6 +53,10 @@ public class LoginController {
 		}
 
 		else if(category.equals("admin")){
+			
+			BookDetailsdao dao=new BookDetailsdao();
+			String c=dao.dynamicstockupdation();
+			model.put("data", c);
 
 			return "adminfirstpage";
 

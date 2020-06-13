@@ -8,7 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	You are registered!!${userId}
+
+	
 	<h5>All fields are mandatory</h5>
 	<form:form method="post" modelAttribute="registerclass" action="/welcome">
 		<fieldset>
@@ -72,5 +73,7 @@
 		</fieldset>
 		<input type="submit"/>
 	</form:form>
+	<h2><font color="green">${msg}</font></h2>
+	
 </body>
 </html>
