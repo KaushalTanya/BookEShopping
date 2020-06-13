@@ -11,8 +11,12 @@
 <form method="post" action="/order">
 <input value="${quan}" name="quan"/>
 	<table>
+	
 		<tr>
-			<td><input type="text" value="${bookname}" name="bookname"/></td>
+			<td><input type="text" value="${userid}" name="userid" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td><input type="text" value="${bookname}" name="bookname"  readonly="true"/></td>
 		</tr>
 		<tr>
 			<td><label>CARD NUMBER</label></td>

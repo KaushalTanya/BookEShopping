@@ -15,6 +15,7 @@ pageEncoding="ISO-8859-1"%>
 <fieldset>
 <label for="books">Category of book:</label>
  <select name="category" id="books">
+ 	<option value="">-----</option>
    <option value="fiction">Fiction</option>
    <option value="sci fiction">sci fiction</option>
    <option value="horror">Horror</option>
@@ -25,11 +26,12 @@ pageEncoding="ISO-8859-1"%>
    <option value="kids books">Kids Books</option>
 </fieldset>
 </div>
-
+<input placeholder="book name keyword" name="keyword" value=""/>
 <input type="submit" placeholder="Submit"> 
-
+<br>
+<font color="green"> ${msg}</font>
 </form>
-<table>
+<table align="center" cellpadding="5" cellspacing="5" border="1">
 <thead>
 <tr>
 <td><b>bookName</b></td>
@@ -55,6 +57,7 @@ pageEncoding="ISO-8859-1"%>
 						<td>${book.buyingoption}</td>
 						<td>${book.bookrate}</td>
 						<td>${book.discount}</td>
+						
 					</tr>
 </c:forEach>
 

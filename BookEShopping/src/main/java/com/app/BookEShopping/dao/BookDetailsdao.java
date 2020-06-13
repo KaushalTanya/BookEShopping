@@ -129,7 +129,6 @@ public class BookDetailsdao {
 			mystmt.executeUpdate("INSERT INTO `carddetails`(cardnumber,cvv,expirydate) "
 
 					+ "VALUE ('"+cardnumber+"','"+cvv+"','"+expirydate+"')");
-			
 			conn.close();
 			mystmt.close();
 			
@@ -224,6 +223,7 @@ public class BookDetailsdao {
 				quan=quan-quantity;
 				int myRsu=mystmt.executeUpdate("update bookdetails set noofcopiesavailable = '"+quan+"'"+"where bookname ='"+bookname+"'");
 				int myRsui=mystmt.executeUpdate("update bookdetails set noofcopiessold = '"+quantity+"'"+"where bookname ='"+bookname+"'");
+				
 			}
 			
 			
@@ -386,6 +386,25 @@ public class BookDetailsdao {
 			e.printStackTrace();
 
 		}
+	}
+
+	public void updatestatustopackaging(String userid, String bookname) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+
+		Statement mystmt = null;
+		try{
+			conn=DbConnection.returnConnectionObject();
+			mystmt=conn.createStatement();
+			mystmt.executeUpdate("update addtocart set trackstatus = 'packaging' where userid = '"+userid+"'"+"and bookname = '"+bookname+"'");
+		}catch (SQLException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
+		
 	}
 	
 	

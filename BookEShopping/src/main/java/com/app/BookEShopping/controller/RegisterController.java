@@ -99,29 +99,6 @@ public class RegisterController {
 
 		// String u=service.generateuserId();
 
-		model.put("userId", registerclass.getUserId());
-
-//		model.put("dob", registerclass.getDob());
-//
-//		model.put("a", registerclass.getEmail());
-//
-//		model.put("b", registerclass.getContactNo());
-//
-//		model.put("c", registerclass.getGender());
-//
-//		model.put("d", registerclass.getLastName());
-//
-//		model.put("e", registerclass.getPassword());
-//
-//		model.put("f", registerclass.getUserCategory());
-//
-//		model.put("g", registerclass.getUserId());
-//
-//		model.put("h", registerclass.getFirstName());
-//
-//		System.out.println(registerclass.getFirstName());
-
-		// model.addAttribute(registerclass);
 
 		Date d = registerclass.getDob();
 
@@ -133,13 +110,22 @@ public class RegisterController {
 
 	    java.sql.Date sqldate = new java.sql.Date(d.getTime());
 
-		service.adddata(registerclass.getFirstName(), registerclass.getLastName(), sqldate, registerclass.getGender(),
+		boolean registered=service.adddata(registerclass.getFirstName(), registerclass.getLastName(), sqldate, registerclass.getGender(),
 
 				registerclass.getContactNo(), registerclass.getEmail(), registerclass.getUserCategory(),
 
 				registerclass.getUserId(), registerclass.getPassword(), registerclass.getPetname(), registerclass.getFavteachername(),registerclass.getSchoolname());
 
-		return "welcome";
+		if(registered==true){
+			model.put("msg","Your details are submitted successfully");
+		}
+		else{
+			model.put("msg", "some error occured");
+		}
+		
+		return "register";
+		
+		
 
 	}
 

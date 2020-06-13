@@ -37,12 +37,17 @@ public String showAdvancedSearchBookPage() {
 return "advancedSearchBook";
 }
 @RequestMapping(value = "/advancedSearchBook", method = RequestMethod.POST)
-public String handleAdvancedSearchBookPage(ModelMap model, @RequestParam String category){
+public String handleAdvancedSearchBookPage(ModelMap model, @RequestParam String category, @RequestParam String keyword){
 
 AdvancedClassService s=new AdvancedClassService();
-List<BookDetails> category1=s.AdvancedSearchBook(category);
-//System.out.println(category); 
-model.put("list", category1);
+List<BookDetails> category1=s.advancedSearchBook(category,keyword);
+
+if(category1.size()>0){
+	model.put("list", category1);
+}
+else{
+	model.put("msg", "Can't find anybook try basic search aur go to home page");
+}
 return "advancedSearchBook";
 
 }
