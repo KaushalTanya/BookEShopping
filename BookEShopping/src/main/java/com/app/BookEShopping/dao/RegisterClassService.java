@@ -81,7 +81,7 @@ public class RegisterClassService {
 	}
 
 
-	public void adddata(String firstName, String lastName, Date dob, String gender, String contactNo, String email,
+	public boolean adddata(String firstName, String lastName, Date dob, String gender, String contactNo, String email,
 
 			String userCategory, String userId, String password,String petname,String favteachername,String schoolname) {
 
@@ -127,6 +127,7 @@ public class RegisterClassService {
 			//("INSERT INTO `time_entry`(pid,tid,rid,tspend,description) VALUE ('"+pid+"','"+tid+"','"+rid+"',"+tspent+",'"+des+"')");
 			conn.close();
 			mystmt.close();
+			return true;
 
 		} catch (SQLException e) {
 
@@ -135,6 +136,7 @@ public class RegisterClassService {
 			e.printStackTrace();
 
 		}
+		return false;
 
 
 

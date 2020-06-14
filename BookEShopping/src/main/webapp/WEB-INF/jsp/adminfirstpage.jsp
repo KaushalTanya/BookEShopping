@@ -5,12 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script>
+if("${data}"===""){
+	alert("stock available");
+}else{
+	alert("some books are required to be purchased ${data}");
+}
+
+</script>
 </head>
 <body>
 	WELCOME ADMIN ${u}
 	<a href="/addresoures">Add Book Details</a>
 	<a href="/showbookdetails"> Resources List</a>
 	<a href="/seeallordersinadmin">Orders</a>
-
+	
+	<a href="/logout">LOGOUT</a>
 </body>
 </html>

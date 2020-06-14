@@ -54,7 +54,10 @@ public class LoginController {
 
 		else if(category.equals("admin")){
 			
-			
+			BookDetailsdao dao=new BookDetailsdao();
+			String c=dao.dynamicstockupdation();
+			model.put("data", c);
+
 			return "adminfirstpage";
 
 		}

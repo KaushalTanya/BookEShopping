@@ -18,6 +18,43 @@ import com.app.BookEShopping.BookDetails;
 
 public class BookDetailsdao {
 	
+	public String dynamicstockupdation(){
+		Connection conn=null;
+
+		Statement mystmt = null;
+		String data="";
+		//int count=0;
+
+		
+		try{
+			conn=DbConnection.returnConnectionObject();
+			mystmt=conn.createStatement();
+
+
+			ResultSet myRs=mystmt.executeQuery("select * from  bookdetails where noofcopiesavailable = 0");
+			if(myRs.next()){
+				//count++;
+				data+=myRs.getString("bookName");
+				data+=",";
+				data+=myRs.getString("bookrate");
+				data+=":";
+			}
+			//data+=";"+Integer.toString(count);
+			
+			conn.close();
+			mystmt.close();
+
+		}catch (SQLException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
+		return data;
+
+	}
+	
 	public String sendbookpriceaddtocart(String bookname){
 		double price=0.0;
 		

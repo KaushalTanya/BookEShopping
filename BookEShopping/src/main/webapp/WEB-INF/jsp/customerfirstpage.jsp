@@ -9,7 +9,7 @@
 </head>
 <body>
 Welcome Customer!!!${userid}
-
+<a href="/logout">LOGOUT</a>
 
 <a href="/resourceList?userid=${userid}">ResourceList</a>
 
