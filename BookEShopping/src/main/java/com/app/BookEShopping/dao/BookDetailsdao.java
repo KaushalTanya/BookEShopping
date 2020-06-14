@@ -181,7 +181,7 @@ public class BookDetailsdao {
 	}
 
 	public void addbookdata(String bookName, String bookCode, String bookDesc, String author, String bookcategory,
-			String booktype, String buyingoption, String bookrate, int discount,int copies,int sold,int retu) {
+			String booktype, String buyingoption, String bookrate, int discount,int copies,int sold,int retu,String url) {
 		
 		Connection conn=null;
 
@@ -217,7 +217,7 @@ public class BookDetailsdao {
 			mystmt.executeUpdate("INSERT INTO `bookdetails`(bookName,bookCode,bookDesc,author,bookcategory,booktype,buyingoption,bookrate,discount,noofcopiesavailable,noofcopiessold,noofcopiesreturned,archieve) "
 
 					+ "VALUE ('"+bookName+"','"+bookCode+"','"+bookDesc+"','"+author+"','"+bookcategory+"','"+booktype+"','"+buyingoption+"','"+bookrate+"','"+discount+"','"+copies+
-					"','"+sold+"','"+retu+"','"+a+
+					"','"+sold+"','"+retu+"','"+a+"','"+url+
 					"')");
 
 			//("INSERT INTO `time_entry`(pid,tid,rid,tspend,description) VALUE ('"+pid+"','"+tid+"','"+rid+"',"+tspent+",'"+des+"')");

@@ -16,6 +16,7 @@ public class BookDetails {
 	private int noofcopiesavailable;
 	private int noofcopiessold;
 	private int noofcopiesreturned;
+	private String bookpreview;
 	public String getBookName() {
 		return bookName;
 	}
@@ -87,6 +88,12 @@ public class BookDetails {
 	}
 	public void setNoofcopiesreturned(int noofcopiesreturned) {
 		this.noofcopiesreturned = noofcopiesreturned;
+	}
+	public String getBookpreview() {
+		return bookpreview;
+	}
+	public void setBookpreview(String bookpreview) {
+		this.bookpreview = bookpreview;
 	}
 	
 

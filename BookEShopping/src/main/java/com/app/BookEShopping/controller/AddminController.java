@@ -35,7 +35,7 @@ public class AddminController {
 				System.out.println("inside this add book");
 		service.addbookdata(bookdetails.getBookName(),bookdetails.getBookCode(), bookdetails.getBookDesc(),
 				bookdetails.getAuthor(), bookdetails.getBookcategory(), bookdetails.getBooktype(),
-				bookdetails.getBuyingoption(), bookdetails.getBookrate(),bookdetails.getDiscount(),bookdetails.getNoofcopiesavailable(),bookdetails.getNoofcopiessold(),bookdetails.getNoofcopiesreturned());
+				bookdetails.getBuyingoption(), bookdetails.getBookrate(),bookdetails.getDiscount(),bookdetails.getNoofcopiesavailable(),bookdetails.getNoofcopiessold(),bookdetails.getNoofcopiesreturned(),bookdetails.getBookpreview());
 		model.put("msg", "BOOK DETAILS ADDED SUCCESSFULLY");
 		return "addresoures";
 	}
@@ -110,6 +110,11 @@ public class AddminController {
 		return "showbookdetails";
 	}
 
+	@RequestMapping(value = "/seefeedback", method = RequestMethod.GET)
+	public String showSeeFeedbackPage()
+	{
+	return "seefeedback";
+	}
 	
 	
 	

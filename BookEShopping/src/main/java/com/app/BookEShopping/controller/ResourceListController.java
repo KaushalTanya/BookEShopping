@@ -18,14 +18,23 @@ public class ResourceListController
 
 @RequestMapping(value="/categoryResList", method = RequestMethod.POST)
 public String showcategoryResListPage(ModelMap model ,@RequestParam String bookscat){
-//model.put("name", name);
+model.put("bookscat", bookscat);
 return "categoryResList";
 }
 
 @RequestMapping(value="/sortResList", method = RequestMethod.POST)
-public String showsortResListPage(ModelMap model){
+public String showsortResListPage(ModelMap model,@RequestParam String books,@RequestParam String bookscat){
 //model.put("name", name);
-return "sortResList";
+	if(books.equals("sortbytitlea")){
+		return "sorttitleatoz";
+		
+	}else if(books.equals("sortbytitlez")){
+		return "sorttitleztoa";
+	}else if(books.equals("sortbyauthora")){
+		return "sortauthoratoz";
+	}else{
+		return "sortauthorztoa";
+	}
 }
 
 

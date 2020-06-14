@@ -1,4 +1,4 @@
-<br>
+br>
 <br>
 <br>
 
@@ -9,12 +9,13 @@
 <%@page import="java.sql.Connection"%>
 
 <%
-String id = request.getParameter("userId");
+
+String cat = request.getParameter("bookscat");
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
 String dbName = "bookshopping";
 String userId = "root";
-String password = "k@pil2904";
+String password = "root";
 
 try {
  Class.forName(driverName);
@@ -42,13 +43,14 @@ ResultSet resultSet = null;
 <td><b>bookrate</b></td>
 <td><b>discount</b></td>
 <td><b>noofcopiesavailable</b></td>
+<td><b>bookpreview</b></td>
 
 </tr>
 <%
 try{ 
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 statement=connection.createStatement();
-String sql ="SELECT * FROM bookdetails WHERE bookcategory='comic' ORDER BY author DESC";
+String sql ="select * from bookdetails where archieve ='no' and bookcategory ='"+cat+"' order by bookName desc";
 
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
@@ -65,6 +67,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("bookrate") %></td>
 <td><%=resultSet.getString("discount") %></td>
 <td><%=resultSet.getString("noofcopiesavailable") %></td>
+<td><a href="<%=resultSet.getString("bookpreview") %>" target="_blank">bookpreview</a></td>
 </tr>
 
 <% 
@@ -75,5 +78,3 @@ e.printStackTrace();
 }
 %>
 </table>
-
-

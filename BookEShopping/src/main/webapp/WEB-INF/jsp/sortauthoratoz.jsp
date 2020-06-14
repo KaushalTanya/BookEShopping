@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>ResourceList</title>
-</head>
-<body>
-<form method="post" action="/sortResList?bookscat=${bookscat}">
-  <label >Sorting Order:</label>
-  <select name="books" >
-    
-    <option value="sortbytitlea">Sort by Title(A to Z)</option>
-    <option value="sortbytitlez">Sort by Title(Z to A)</option>
-    <option value="sortbyauthora">Sort by Author(A to Z)</option>
-    <option value="sortbyauthorz">Sort by Author(Z to A)</option>
-  </select>
-  <input type="submit" value="sort resource list"/>
-</form>
-
-</body>
-</html>
-
 <br>
 <br>
-
-
+<br>
 
 
 <%@page import="java.sql.DriverManager"%>
@@ -31,6 +9,7 @@
 <%@page import="java.sql.Connection"%>
 
 <%
+
 String cat = request.getParameter("bookscat");
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
@@ -38,6 +17,11 @@ String dbName = "bookshopping";
 String userId = "root";
 String password = "root";
 
+try {
+ Class.forName(driverName);
+} catch (ClassNotFoundException e) {
+e.printStackTrace();
+}
 
 Connection connection = null;
 Statement statement = null;
@@ -46,6 +30,8 @@ ResultSet resultSet = null;
 
 <table align="center" cellpadding="5" cellspacing="5" border="1">
 <tr>
+
+
 
 <td><b>bookName</b></td>
 <td><b>bookCode</b></td>
@@ -57,15 +43,16 @@ ResultSet resultSet = null;
 <td><b>bookrate</b></td>
 <td><b>discount</b></td>
 <td><b>noofcopiesavailable</b></td>
-<td><b>noofcopiessold</b></td>
-<td><b>noofcopiesreturned</b></td>
+<td><b>bookpreview</b></td>
+
 </tr>
 <%
 try{ 
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
 statement=connection.createStatement();
+String sql ="select * from bookdetails where archieve ='no' and bookcategory ='"+cat+"' order by author asc";
 
-resultSet = statement.executeQuery("select * from bookdetails where bookcategory ='"+cat+"'");
+resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
 
@@ -80,8 +67,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("bookrate") %></td>
 <td><%=resultSet.getString("discount") %></td>
 <td><%=resultSet.getString("noofcopiesavailable") %></td>
-<td><%=resultSet.getString("noofcopiessold") %></td>
-<td><%=resultSet.getString("noofcopiesreturned") %></td>
+<td><a href="<%=resultSet.getString("bookpreview") %>" target="_blank">bookpreview</a></td>
 </tr>
 
 <% 
@@ -92,4 +78,3 @@ e.printStackTrace();
 }
 %>
 </table>
-

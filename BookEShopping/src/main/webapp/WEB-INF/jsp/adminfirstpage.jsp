@@ -19,6 +19,7 @@ if("${data}"===""){
 	<a href="/addresoures">Add Book Details</a>
 	<a href="/showbookdetails"> Resources List</a>
 	<a href="/seeallordersinadmin">Orders</a>
+	<a href="/seefeedback">See Feedback</a>
 	
 	<a href="/logout">LOGOUT</a>
 </body>
