@@ -214,7 +214,7 @@ public class BookDetailsdao {
 
 			
 
-			mystmt.executeUpdate("INSERT INTO `bookdetails`(bookName,bookCode,bookDesc,author,bookcategory,booktype,buyingoption,bookrate,discount,noofcopiesavailable,noofcopiessold,noofcopiesreturned,archieve) "
+			mystmt.executeUpdate("INSERT INTO `bookdetails`(bookName,bookCode,bookDesc,author,bookcategory,booktype,buyingoption,bookrate,discount,noofcopiesavailable,noofcopiessold,noofcopiesreturned,archieve,bookpreview) "
 
 					+ "VALUE ('"+bookName+"','"+bookCode+"','"+bookDesc+"','"+author+"','"+bookcategory+"','"+booktype+"','"+buyingoption+"','"+bookrate+"','"+discount+"','"+copies+
 					"','"+sold+"','"+retu+"','"+a+"','"+url+

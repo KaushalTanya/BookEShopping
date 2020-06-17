@@ -22,16 +22,40 @@ import com.app.BookEShopping.dao.RegisterClassService;
 @Controller
 
 public class LoginController {
+	
+	
+	@RequestMapping(value = "/bookeshopping", method = RequestMethod.GET)
+	public String showwelcomePage() {
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-
-	// @ResponseBody
-
-	public String showLoginPage() {
-
-		return "login";
+		return "welcome";
 
 	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String showLoginPage() {
+
+		//return "login";
+		return "welcome";
+
+	}
+	
+	@RequestMapping(value = "/adminhome", method = RequestMethod.GET)
+	public String showAdminHome(ModelMap model) {
+		
+		BookDetailsdao dao=new BookDetailsdao();
+		String c=dao.dynamicstockupdation();
+		model.put("data", c);
+
+		return "adminfirstpage";
+
+	}
+//	//
+//	@RequestMapping(value = "/custhome", method = RequestMethod.GET)
+//	public String showCustHome(ModelMap model) {
+//		//model.put("userid", userid);
+//		return "customerfirstpage";
+//
+//	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 
@@ -56,6 +80,7 @@ public class LoginController {
 			
 			BookDetailsdao dao=new BookDetailsdao();
 			String c=dao.dynamicstockupdation();
+			model.put("u", userid);
 			model.put("data", c);
 
 			return "adminfirstpage";

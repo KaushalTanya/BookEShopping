@@ -11,6 +11,6 @@ public class LogoutController {
 	public String logout() {
 		
 		
-		return "redirect:/login";
+		return "redirect:/bookeshopping";
 	}
 }

@@ -30,7 +30,7 @@
 			
 		</form>
 		<br><br>
-		Click here to Register to create your account: <a href="/registeruser">Register</a>
+		
 		<br><br>
 		<a href="/forgotpassword">FORGOT PASSWORD</a>
 		<br><br>

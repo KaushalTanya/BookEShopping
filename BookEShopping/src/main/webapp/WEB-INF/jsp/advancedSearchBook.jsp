@@ -9,6 +9,17 @@ pageEncoding="ISO-8859-1"%>
 </head>
 <body>
 <div>
+<div  style="background-color:DodgerBlue;">
+<span style="display: inline-block;"><h1><i><b>Book-E-Shopping</b></i></h1></span>
+<span style="display: inline-block;margin-top:10px;"><img src="https://www.logolynx.com/images/logolynx/51/518a650b8f036ca07a763ee8337d858c.jpeg" style="width:100px;height:100px;border-radius:50px"></span>
+
+<div style="background-color:DodgerBlue;font-size:20px;float:right;margin-top:80px;margin-right:20px">
+	<a href="/logout">LOGOUT</a>
+	
+</div>
+</div>
+
+
 <form method="POST" action="/advancedSearchBook">
 
 <div>
@@ -24,6 +35,7 @@ pageEncoding="ISO-8859-1"%>
    <option value="novels">Novels</option>
    <option value="comic">Comic</option>
    <option value="kids books">Kids Books</option>
+   <option value="Etc">Other</option>
 </fieldset>
 </div>
 <input placeholder="book name keyword" name="keyword" value=""/>
@@ -65,5 +77,7 @@ pageEncoding="ISO-8859-1"%>
 </table>
 
 </div>
+<div style=" position: fixed;margin-top:10px;background-color:lightblue;text-align:center;width:100%">&copy;Copyright Cognizant 2020</div>
+
 </body>
 </html>

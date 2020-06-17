@@ -7,6 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div style="background-color: DodgerBlue;">
+		<span style="display: inline-block;"><h1>
+				<i><b>Book-E-Shopping</b></i>
+			</h1></span> <span style="display: inline-block; margin-top: 10px;"><img
+			src="https://www.logolynx.com/images/logolynx/51/518a650b8f036ca07a763ee8337d858c.jpeg"
+			style="width: 100px; height: 100px; border-radius: 50px"></span>
+
+		<div
+			style="background-color: DodgerBlue; font-size: 20px; float: right; margin-top: 80px; margin-right: 20px">
+			<a href="/logout">LOGOUT</a>
+
+		</div>
+	</div>
+
 <font color="green">${message}</font>
 <form method="post" action="/order">
 <input value="${quan}" name="quan"/>
@@ -33,5 +47,9 @@
 	</table>
 	<input type="submit"/>
 </form>
+<div
+		style="position: fixed; margin-top: 10px; background-color: lightblue; text-align: center; width: 100%">&copy;Copyright
+		Cognizant 2020</div>
+
 </body>
 </html>

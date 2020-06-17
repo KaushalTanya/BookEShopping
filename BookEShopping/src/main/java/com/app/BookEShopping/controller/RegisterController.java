@@ -84,6 +84,22 @@ public class RegisterController {
 		registerclass = new RegisterClass();
 
 		model.put("userId", service.generateuserId());
+		model.put("category","customer");
+
+		return "register";
+
+	}
+	
+	@RequestMapping(value = "/registeradmin", method = RequestMethod.GET)
+
+	public String showAdminRegisterPage(@ModelAttribute("registerclass") RegisterClass registerclass, ModelMap model) {
+
+		// String u=service.generateuserId();
+
+		registerclass = new RegisterClass();
+
+		model.put("userId", service.generateuserId());
+		model.put("category","admin");
 
 		return "register";
 
@@ -91,7 +107,8 @@ public class RegisterController {
 
 
 
-	@RequestMapping(value = "/welcome", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 
 	public String showWelcomepage(@ModelAttribute("registerclass") RegisterClass registerclass, ModelMap model,
 

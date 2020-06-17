@@ -22,7 +22,7 @@ statement = connection.createStatement();
 String QueryString = "SELECT * from bookdetails";
 rs = statement.executeQuery(QueryString);
 %>
-<TABLE cellpadding="15" border="1" style="background-color: #ffffcc;">
+<TABLE cellpadding="6" border="1" style="background-color: #ffffcc;">
 <TR>
 <TH>Book Name</TH>
 <TH>Book Code</TH>
@@ -36,6 +36,7 @@ rs = statement.executeQuery(QueryString);
 <th>no of copies available</th>
 <th>no of copies sold</th>
 <th>no of copies returned</th>
+<th>Book Preview</th>
 <th>ARCHIEVE</th>
 </TR>
 <%
@@ -55,6 +56,7 @@ while (rs.next()) {
 <TD><%=rs.getInt(11)%></TD>
 <TD><%=rs.getInt(12)%></TD>
 <TD><%=rs.getString(13)%></TD>
+<TD><%=rs.getString(14)%></TD>
 
 <td><a href="/archieve?bookcode=<%=rs.getString(2)%>">Archive</a></td>
 <td><a href="/unarchieve?bookcode=<%=rs.getString(2)%>">Undo archive</a></td>

@@ -18,6 +18,7 @@ public class ResourceListController
 
 @RequestMapping(value="/categoryResList", method = RequestMethod.POST)
 public String showcategoryResListPage(ModelMap model ,@RequestParam String bookscat){
+	
 model.put("bookscat", bookscat);
 return "categoryResList";
 }
